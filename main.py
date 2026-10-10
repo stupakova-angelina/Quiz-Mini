@@ -55,6 +55,14 @@ def ask_single_question(q):
             print("Нужно ввести цифру.")
 
 
+def calculate_score(answers, db):
+    score = 0
+    for i, q in enumerate(db):
+        if answers[i] == q["correct_index"]:
+            score += 1
+    return score
+
+
 def run_quiz_session(db):
     shuffled = db.copy()
     random.shuffle(shuffled)
